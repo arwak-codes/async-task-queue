@@ -1,27 +1,27 @@
-\# Route Mobile Python Developer Assessment
+# Route Mobile Python Developer Assessment
 
-\## Tech Stack
-\- Python 3.10+
-\- Flask (REST API)
-\- RabbitMQ (Message Broker)
-\- Celery (Background Worker)
-\- SQLite (Database)
-\- Python Threading (Concurrent Requests)
+## Tech Stack
+	Python 3.10+
+	Flask (REST API)
+	RabbitMQ (Message Broker)
+	Celery (Background Worker)
+	SQLite (Database)
+	Python Threading (Concurrent Requests)
 
-\---
+---
 
-\## Prerequisites
+## Prerequisites
 
 Before running the project, make sure the following are installed and running:
 
-1\. Python 3.10 or above
-2\. RabbitMQ Server running on localhost:5672
-	- Management UI available at http://localhost:15672
-	- Default credentials: guest / guest
+1. Python 3.10 or above
+2. RabbitMQ Server running on localhost:5672
+	Management UI available at http://localhost:15672
+	Default credentials: guest / guest
 
-\---
+---
 
-\## Project Structure
+## Project Structure
 
 route\_assessment/
 ├── app.py           → Flask API (POST /item and GET /concurrent)
@@ -34,41 +34,45 @@ route\_assessment/
 ├── README.md        → Setup and run instructions
 └── RouteAssessment.postman_collection.json → Postman collection
 
-\---
+---
 
-\## Setup Instructions
+## Setup Instructions
 
-\### Step 1 — Clone the project
+### Step 1 — Clone the project
 ```bash
 cd route_assessment
 ```
 
-\### Step 2 — Create and activate virtual environment
+
+### Step 2 — Create and activate virtual environment
 ```bash
 python -m venv venv
 ```
 
-\# For Windows:
+# For Windows:
 venv\Scripts\activate
 
 
-\# For Mac/Linux:
+# For Mac/Linux:
 source venv/bin/activate
 
 
-\### Step 3 — Install all dependencies
+
+### Step 3 — Install all dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-\### Step 4 — Initialise the database
+
+### Step 4 — Initialise the database
 ```bash
 python db.py
 ```
 This creates the `items.db` SQLite database and the `items` table automatically.
 
 
-\### Step 5 — Ensure RabbitMQ is running
+
+### Step 5 — Ensure RabbitMQ is running
 
 Make sure RabbitMQ is running on `localhost:5672` before proceeding.
 You can verify at http://localhost:15672 (guest/guest).
@@ -89,12 +93,14 @@ python app.py
 Flask will run on: http://127.0.0.1:5000
 
 
+
 \### Terminal 2 — Start Celery Worker
 ```bash
 python worker.py
 ```
 
 Worker will start listening for messages from RabbitMQ queue.
+
 
 
 \### Terminal 3 — Test endpoints
@@ -118,6 +124,8 @@ curl -i -X POST http://127.0.0.1:5000/item -H "Content-Type: application/json" -
 ```json
 {}
 ```
+
+
 
 \*\*DB flow:\*\*
 
@@ -149,6 +157,7 @@ Note: Response time includes network latency to httpbin.org servers.
 \---
 
 
+
 \## Testing with Postman
 
 1\. Open Postman
@@ -158,6 +167,7 @@ Note: Response time includes network latency to httpbin.org servers.
 
 
 \---
+
 
 
 \## Verify DB directly
