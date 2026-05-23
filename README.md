@@ -40,7 +40,7 @@ route\_assessment/
 
 \### Step 1 — Clone the project
 ```bash
-cd route\_assessment
+cd route_assessment
 ```
 
 \### Step 2 — Create and activate virtual environment
@@ -48,11 +48,11 @@ cd route\_assessment
 python -m venv venv
 ```
 
-\# Windows
-venv\\Scripts\\activate
+\# For Windows:
+venv\Scripts\activate
 
 
-\# Mac/Linux
+\# For Mac/Linux:
 source venv/bin/activate
 
 
@@ -97,12 +97,8 @@ python worker.py
 Worker will start listening for messages from RabbitMQ queue.
 
 
-\### Terminal 3 — Run tests or check DB
-
-Use for curl commands, DB verification, or any manual testing.
-
-
-\---
+\### Terminal 3 — Test endpoints
+Use the provided Postman collection or curl commands below.
 
 
 \## API Endpoints
@@ -115,7 +111,7 @@ Celery worker automatically updates status to `completed`.
 
 \*\*Request:\*\*
 ```bash
-curl -i -X POST http://127.0.0.1:5000/item -H "Content-Type: application/json" -d "{\\"item\\": \\"book\\"}"
+curl -i -X POST http://127.0.0.1:5000/item -H "Content-Type: application/json" -d "{\"item\": \"book\"}"
 ```
 
 \*\*Response:\*\* `202 ACCEPTED`
@@ -139,12 +135,12 @@ Fires 5 concurrent HTTP requests to `https://httpbin.org/delay/{delay\_value}`us
 
 \*\*Request:\*\*
 ```bash
-curl "http://127.0.0.1:5000/concurrent?delay\_value=3"
+curl "http://127.0.0.1:5000/concurrent?delay_value=3"
 ```
 
 \*\*Response:\*\* `200 OK`
 ```json
-{"time\_taken": 7.15}
+{"time_taken": 7.15}
 ```
 
 Note: Response time includes network latency to httpbin.org servers.
@@ -157,7 +153,7 @@ Note: Response time includes network latency to httpbin.org servers.
 
 1\. Open Postman
 2\. Click \*\*Import\*\*
-3\. Select `RouteAssessment.postman\_collection.json`
+3\. Select `RouteAssessment.postman_collection.json`
 4\. Both endpoints are pre-configured and ready to test
 
 
@@ -168,5 +164,5 @@ Note: Response time includes network latency to httpbin.org servers.
 
 To check the database at any point:
 ```bash
-python -c "import sqlite3; conn = sqlite3.connect('items.db'); rows = conn.execute('SELECT \* FROM items').fetchall(); print(rows); conn.close()"
+python -c "import sqlite3; conn = sqlite3.connect('items.db'); rows = conn.execute('SELECT * FROM items').fetchall(); print(rows); conn.close()"
 ```
