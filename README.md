@@ -139,7 +139,7 @@ After worker processes: id=1  item=book  status=completed
 
 \### 2. GET /concurrent
 
-Fires 5 concurrent HTTP requests to `https://httpbin.org/delay/{delay\_value}`using Python Threading and returns total time taken.
+Fires 5 concurrent HTTP requests to `https://httpbin.org/delay/{delay_value}`using Python Threading and returns total time taken.
 
 \*\*Request:\*\*
 ```bash

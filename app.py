@@ -61,7 +61,7 @@ def concurrent_requests():
 
     def fetch(url):
         response = http_requests.get(url)
-        results.append(results.status_code)
+        results.append(response.status_code)
 
     start_time = time.time()
 
